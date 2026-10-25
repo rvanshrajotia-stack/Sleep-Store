@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SomnaSleep | Deep Rest & Stress Relief Essentials</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            night: {
+              900: '#0B0D19',
+              800: '#121629',
+              700: '#1A203C',
+              600: '#252D54',
+            },
+            accent: {
+              gold: '#E2C08D',
+              rose: '#E8A598',
+              violet: '#7C4DFF',
+              indigo: '#4F46E5',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Scrollbars & Animations */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B0D19;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #252D54;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #7C4DFF;
+    }
+    .glow-purple {
+      box-shadow: 0 0 40px -10px rgba(124, 77, 255, 0.3);
+    }
+    .glow-gold {
+      box-shadow: 0 0 35px -10px rgba(226, 192, 141, 0.25);
+    }
+    .glass-card {
+      background: rgba(18, 22, 41, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-nav {
+      background: rgba(11, 13, 25, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  </style>
+</head>
+<body class="bg-night-900 text-slate-200 font-sans antialiased overflow-x-hidden">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-gradient-to-r from-accent-indigo via-accent-violet to-purple-900 text-white text-xs py-2 px-4 text-center font-medium tracking-wide">
+    <span class="inline-flex items-center gap-1.5">
+      <i data-lucide="sparkles" class="w-3.5 h-3.5 text-accent-gold">="sparkles" class="w-3.5 h-3.5 text-accent-gold"></i>
+      SPRING SLEEP SALE: Save up to 40% + Free Worldwide Express Shipping Today Only!
+    </span>
+  </div>
+
+  <!-- Sticky Navigation Header -->
+  <header class="sticky top-0 z-40 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-accent-violet to-accent-gold flex items-center justify-center text-night-900 font-bold shadow-lg group-hover:scale-105 transition-transform">
+          <i data-lucide="moon" class="w-5 h-5 fill-night-900"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-2xl font-bold tracking-tight text-white group-hover:text-accent-gold transition-colors">Somna<span class="text-accent-gold font-sans font-light">Sleep</span></span>
+          <span class="text-[9px] uppercase tracking-widest text-slate-400">Rest & Wellness Studio</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#products" class="hover:text-accent-gold transition-colors">Products</a>
+        <a href="#bundle" class="hover:text-accent-gold transition-colors flex items-center gap-1">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-gold opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-gold"></span>
+          </span>
+          Bundle & Save
+        </a>
+        <a href="#videos" class="hover:text-accent-gold transition-colors">Video Demos</a>
+        <a href="#reviews" class="hover:text-accent-gold transition-colors">Reviews</a>
+        <a href="#faq" class="hover:text-accent-gold transition-colors">FAQ</a>
+      </nav>
+
+      <!-- Cart Button & Mobile Menu Toggle -->
+      <div class="flex items-center gap-4">
+        <button id="cart-toggle-btn" onclick="toggleCart()" class="relative p-2.5 rounded-full bg-night-800 hover:bg-night-700 border border-slate-700/60 transition-all text-slate-200">
+          <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+          <span id="cart-badge-count" class="absolute -top-1 -right-1 bg-accent-violet text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-night-900">0</span>
+        </button>
+        <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-slate-300 hover:bg-night-800">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-night-900 border-b border-slate-800 px-6 py-4 space-y-3">
+      <a href="#products" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-accent-gold font-medium py-1">Products</a>
+      <a href="#bundle" onclick="toggleMobileMenu()" class="block text-accent-gold font-medium py-1">Bundle & Save (Special)</a>
+      <a href="#videos" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-accent-gold font-medium py-1">Video Demos</a>
+      <a href="#reviews" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-accent-gold font-medium py-1">Reviews</a>
+      <a href="#faq" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-accent-gold font-medium py-1">FAQ</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative pt-12 pb-24 md:py-28 overflow-hidden">
+    <!-- Ambient Background Glows -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-violet/15 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute top-1/3 right-10 w-[350px] h-[350px] bg-accent-gold/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Hero Text -->
+        <div class="space-y-8 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-night-800/80 border border-slate-700/80 text-xs font-semibold text-accent-gold backdrop-blur-md">
+            <i data-lucide="award" class="w-4 h-4 text-accent-gold"></i>
+            Rated #1 Sleep Wellness Routine System 2026
+          </div>
+
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-white">
+            Sleep Deeper. <br/>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-gold via-accent-rose to-accent-violet">Wake Rested & Renewed.</span>
+          </h1>
+
+          <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+            Reclaim your nighttime sanctuary. Our scientifically engineered sleep gear calms your nervous system, blocks light pollution, and gently restores your natural circadian rhythm.
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a href="#products" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-accent-violet to-accent-indigo text-white font-semibold shadow-lg hover:shadow-accent-violet/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+              <span>Shop Sleep Collection</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <a href="#videos" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card text-slate-200 hover:text-white font-semibold hover:bg-night-800 border border-slate-700/70 hover:border-slate-500 transition-all flex items-center justify-center gap-2">
+              <i data-lucide="play-circle" class="w-5 h-5 text-accent-gold"></i>
+              <span>Watch Demos</span>
+            </a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="pt-6 border-t border-slate-800/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 text-center">
+            <div>
+              <p class="text-xl sm:text-2xl font-bold text-white">98%</p>
+              <p class="text-xs text-slate-400">Better Sleep Quality</p>
+            </div>
+            <div>
+              <p class="text-xl sm:text-2xl font-bold text-white">30 Days</p>
+              <p class="text-xs text-slate-400">Risk-Free Trial</p>
+            </div>
+            <div>
+              <p class="text-xl sm:text-2xl font-bold text-white">45,000+</p>
+              <p class="text-xs text-slate-400">Happy Sleepers</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Visual Collage -->
+        <div class="relative flex justify-center">
+          <div class="relative w-full max-w-md lg:max-w-none">
+            
+            <!-- Main Featured Image -->
+            <div class="relative rounded-2xl overflow-hidden border border-slate-700/60 shadow-2xl glow-purple group">
+              <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=1000&q=80" 
+                   alt="Cozy bedroom luxury setup" 
+                   class="w-full h-[380px] sm:h-[480px] object-cover group-hover:scale-105 transition-transform duration-700" 
+                   onerror="this.src='https://placehold.co/800x600/121629/E2C08D?text=Luxury+Sleep+Sanctuary'" />
+              <div class="absolute inset-0 bg-gradient-to-t from-night-900 via-transparent to-transparent opacity-80"></div>
+              
+              <!-- Floating Card overlay -->
+              <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl glass-card flex items-center gap-4">
+                <div class="w-12 h-12 rounded-lg bg-accent-violet/20 flex items-center justify-center text-accent-gold shrink-0">
+                  <i data-lucide="sun" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-semibold text-white">Natural Wake-Up Sunrise</h4>
+                  <p class="text-xs text-slate-400">94% report easier morning awakenings</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Badge Top Right -->
+            <div class="absolute -top-4 -right-4 sm:-right-6 bg-night-800 border border-accent-gold/40 text-white p-3.5 rounded-xl shadow-xl glass-card flex items-center gap-3">
+              <div class="flex text-amber-400">
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              </div>
+              <span class="text-xs font-semibold">4.9/5 Rating</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Bundle Builder / Savings Calculator -->
+  <section id="bundle" class="py-20 bg-night-800/50 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-accent-gold text-xs font-bold uppercase tracking-widest">Custom Sleep Ritual</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2">Build Your Sleep Sanctuary Bundle</h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-3">Select 2 or more items to unlock instant stackable discounts up to 35% OFF.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8 items-start">
+        
+        <!-- Selection List (2 cols on desktop) -->
+        <div class="lg:col-span-2 space-y-4">
+          
+          <!-- Item 1 -->
+          <div onclick="toggleBundleItem('eye-mask')" id="bundle-card-eye-mask" class="glass-card p-5 rounded-xl border-2 border-accent-violet/80 bg-night-800 cursor-pointer transition-all flex items-center gap-4">
+            <input type="checkbox" id="chk-eye-mask" checked class="w-5 h-5 accent-accent-violet rounded cursor-pointer" onclick="event.stopPropagation(); updateBundle();">
+            <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=300&q=80" alt="Weighted Eye Mask" class="w-20 h-20 object-cover rounded-lg border border-slate-700 shrink-0" onerror="this.src='https://placehold.co/200/121629/FFFFFF?text=Eye+Mask'">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between">
+                <h3 class="font-semibold text-white text-base">Weighted Pure Silk Eye Mask</h3>
+                <span class="font-bold text-accent-gold text-lg">$39.99</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-1">Deep pressure touch therapy blocks 100% light for instant relaxation.</p>
+              <div class="mt-2 flex items-center gap-2 text-xs text-slate-300">
+                <span class="px-2 py-0.5 rounded bg-night-700 text-accent-rose">100% Mulberry Silk</span>
+                <span class="px-2 py-0.5 rounded bg-night-700 text-slate-300">Weighted Glass Micro-beads</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div onclick="toggleBundleItem('sunrise-clock')" id="bundle-card-sunrise-clock" class="glass-card p-5 rounded-xl border-2 border-accent-violet/80 bg-night-800 cursor-pointer transition-all flex items-center gap-4">
+            <input type="checkbox" id="chk-sunrise-clock" checked class="w-5 h-5 accent-accent-violet rounded cursor-pointer" onclick="event.stopPropagation(); updateBundle();">
+            <img src="https://images.unsplash.com/photo-1508672019048-805479767513?auto=format&fit=crop&w=300&q=80" alt="Sunrise Alarm Clock" class="w-20 h-20 object-cover rounded-lg border border-slate-700 shrink-0" onerror="this.src='https://placehold.co/200/121629/FFFFFF?text=Sunrise+Clock'">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between">
+                <h3 class="font-semibold text-white text-base">Smart Sunrise Wake-Up Alarm Clock</h3>
+                <span class="font-bold text-accent-gold text-lg">$79.99</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-1">Simulates gradual natural dawn with soothing ambient sounds & soothing light.</p>
+              <div class="mt-2 flex items-center gap-2 text-xs text-slate-300">
+                <span class="px-2 py-0.5 rounded bg-night-700 text-accent-rose">7 Natural Sounds</span>
+                <span class="px-2 py-0.5 rounded bg-night-700 text-slate-300">Dual Alarms + FM</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div onclick="toggleBundleItem('diffuser')" id="bundle-card-diffuser" class="glass-card p-5 rounded-xl border-2 border-accent-violet/80 bg-night-800 cursor-pointer transition-all flex items-center gap-4">
+            <input type="checkbox" id="chk-diffuser" checked class="w-5 h-5 accent-accent-violet rounded cursor-pointer" onclick="event.stopPropagation(); updateBundle();">
+            <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=300&q=80" alt="Ultrasonic Aromatherapy Diffuser" class="w-20 h-20 object-cover rounded-lg border border-slate-700 shrink-0" onerror="this.src='https://placehold.co/200/121629/FFFFFF?text=Diffuser'">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between">
+                <h3 class="font-semibold text-white text-base">Ultrasonic Essential Oil Flame Diffuser</h3>
+                <span class="font-bold text-accent-gold text-lg">$49.99</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-1">Creates a cozy flame-mist effect with silent humidification and sleep timer.</p>
+              <div class="mt-2 flex items-center gap-2 text-xs text-slate-300">
+                <span class="px-2 py-0.5 rounded bg-night-700 text-accent-rose">Whisper Quiet</span>
+                <span class="px-2 py-0.5 rounded bg-night-700 text-slate-300">Includes Lavender Oil</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bundle Summary Box -->
+        <div class="glass-card p-6 rounded-2xl border border-accent-gold/30 sticky top-28 glow-gold">
+          <div class="flex items-center justify-between pb-4 border-b border-slate-700/60">
+            <h3 class="font-bold text-lg text-white">Bundle Summary</h3>
+            <span id="bundle-discount-badge" class="bg-accent-rose/20 text-accent-rose text-xs font-bold px-2.5 py-1 rounded-full">Save 30%</span>
+          </div>
+
+          <div class="space-y-3 py-4 text-sm">
+            <div class="flex justify-between text-slate-400">
+              <span>Items Selected:</span>
+              <span id="bundle-items-count" class="text-white font-medium">3 of 3</span>
+            </div>
+            <div class="flex justify-between text-slate-400">
+              <span>Original Total:</span>
+              <span id="bundle-original-price" class="line-through text-slate-500">$169.97</span>
+            </div>
+            <div class="flex justify-between text-slate-400">
+              <span>Bundle Discount:</span>
+              <span id="bundle-savings" class="text-emerald-400 font-semibold">-$50.99</span>
+            </div>
+            <div class="pt-3 border-t border-slate-700/60 flex justify-between items-baseline">
+              <span class="font-semibold text-white">Bundle Price:</span>
+              <span id="bundle-final-price" class="text-2xl font-extrabold text-accent-gold">$118.98</span>
+            </div>
+          </div>
+
+          <button onclick="addBundleToCart()" class="w-full mt-2 py-4 rounded-xl bg-gradient-to-r from-accent-gold to-amber-500 hover:from-amber-400 hover:to-amber-600 text-night-900 font-bold text-center shadow-lg hover:shadow-amber-500/20 transition-all flex items-center justify-center gap-2">
+            <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+            <span>Add Complete Bundle to Cart</span>
+          </button>
+          <p class="text-[11px] text-slate-400 text-center mt-3">⚡ Free Express Shipping & 30-Day Money Back Guarantee</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TikTok / Short-form Video Demos Section -->
+  <section id="videos" class="py-20 bg-night-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-accent-violet font-bold text-xs uppercase tracking-widest">As Seen On TikTok & Reels</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2">See It In Action</h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-2">Real customers sharing their nightly sleep transformation routines.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Video Card 1 -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-slate-800 relative group">
+          <!-- Video Mockup Frame -->
+          <div class="relative h-[440px] bg-slate-950 flex items-center justify-center overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1511295742362-92c96b124e52?auto=format&fit=crop&w=600&q=80" alt="Video demo" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-night-900 via-transparent to-transparent"></div>
+            
+            <!-- Play Button Overlay -->
+            <button onclick="showToast('Playing demo video preview...')" class="absolute w-16 h-16 rounded-full bg-accent-violet/90 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <i data-lucide="play" class="w-8 h-8 fill-white ml-1"></i>
+            </button>
+
+            <!-- Video Overlay Stats -->
+            <div class="absolute top-4 left-4 bg-night-900/80 backdrop-blur-md px-3 py-1 rounded-full text-xs text-white flex items-center gap-1.5 border border-slate-700">
+              <i data-lucide="eye" class="w-3.5 h-3.5 text-slate-300"></i>
+              <span>1.2M Views</span>
+            </div>
+
+            <!-- Author & Caption -->
+            <div class="absolute bottom-4 left-4 right-4 text-left">
+              <p class="text-xs text-accent-gold font-semibold">@wellness_with_sarah</p>
+              <p class="text-sm text-white font-medium mt-1">"This sunrise clock completely cured my morning fatigue! 🌅"</p>
+              <div class="mt-3 flex items-center gap-4 text-xs text-slate-300">
+                <span class="flex items-center gap-1"><i data-lucide="heart" class="w-4 h-4 text-rose-400 fill-rose-400"></i> 142k</span>
+                <span class="flex items-center gap-1"><i data-lucide="message-circle" class="w-4 h-4 text-slate-300"></i> 1,280</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Card 2 -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-slate-800 relative group">
+          <div class="relative h-[440px] bg-slate-950 flex items-center justify-center overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80" alt="Video demo mask" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-night-900 via-transparent to-transparent"></div>
+            
+            <button onclick="showToast('Playing demo video preview...')" class="absolute w-16 h-16 rounded-full bg-accent-violet/90 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <i data-lucide="play" class="w-8 h-8 fill-white ml-1"></i>
+            </button>
+
+            <div class="absolute top-4 left-4 bg-night-900/80 backdrop-blur-md px-3 py-1 rounded-full text-xs text-white flex items-center gap-1.5 border border-slate-700">
+              <i data-lucide="eye" class="w-3.5 h-3.5 text-slate-300"></i>
+              <span>850K Views</span>
+            </div>
+
+            <div class="absolute bottom-4 left-4 right-4 text-left">
+              <p class="text-xs text-accent-gold font-semibold">@alex_sleepdoc</p>
+              <p class="text-sm text-white font-medium mt-1">"Why weighted eye masks induce deeper REM sleep cycles. 💤"</p>
+              <div class="mt-3 flex items-center gap-4 text-xs text-slate-300">
+                <span class="flex items-center gap-1"><i data-lucide="heart" class="w-4 h-4 text-rose-400 fill-rose-400"></i> 98k</span>
+                <span class="flex items-center gap-1"><i data-lucide="message-circle" class="w-4 h-4 text-slate-300"></i> 890</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Card 3 -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-slate-800 relative group sm:col-span-2 lg:col-span-1">
+          <div class="relative h-[440px] bg-slate-950 flex items-center justify-center overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=600&q=80" alt="Video demo diffuser" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-night-900 via-transparent to-transparent"></div>
+            
+            <button onclick="showToast('Playing demo video preview...')" class="absolute w-16 h-16 rounded-full bg-accent-violet/90 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+              <i data-lucide="play" class="w-8 h-8 fill-white ml-1"></i>
+            </button>
+
+            <div class="absolute top-4 left-4 bg-night-900/80 backdrop-blur-md px-3 py-1 rounded-full text-xs text-white flex items-center gap-1.5 border border-slate-700">
+              <i data-lucide="eye" class="w-3.5 h-3.5 text-slate-300"></i>
+              <span>2.4M Views</span>
+            </div>
+
+            <div class="absolute bottom-4 left-4 right-4 text-left">
+              <p class="text-xs text-accent-gold font-semibold">@cozy_home_vibes</p>
+              <p class="text-sm text-white font-medium mt-1">"The flame mist aromatherapy diffuser is an absolute vibe! 🔥"</p>
+              <div class="mt-3 flex items-center gap-4 text-xs text-slate-300">
+                <span class="flex items-center gap-1"><i data-lucide="heart" class="w-4 h-4 text-rose-400 fill-rose-400"></i> 310k</span>
+                <span class="flex items-center gap-1"><i data-lucide="message-circle" class="w-4 h-4 text-slate-300"></i> 3,420</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Catalog Grid -->
+  <section id="products" class="py-20 bg-night-800/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <span class="text-accent-gold font-bold text-xs uppercase tracking-widest">Premium Catalog</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2">Best-Selling Sleep Essentials</h2>
+        </div>
+        <p class="text-slate-400 text-sm max-w-md mt-2 md:mt-0">Free express shipping & 30-day money-back guarantee on all products.</p>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" id="products-grid">
+        <!-- Javascript dynamically renders products here -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Customer Reviews / Social Proof -->
+  <section id="reviews" class="py-20 bg-night-900 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-accent-gold font-bold text-xs uppercase tracking-widest">Verified Customer Reviews</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2">Loved by 45,000+ Sleepers</h2>
+        <div class="flex items-center justify-center gap-1 text-amber-400 mt-3">
+          <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+          <span class="text-slate-200 text-sm font-semibold ml-2">4.92 / 5.0 Overall Rating</span>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        
+        <!-- Review 1 -->
+        <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-4">
+          <div class="flex items-center justify-between">
+            <div class="flex text-amber-400">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <span class="text-emerald-400 text-xs font-medium flex items-center gap-1">
+              <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> Verified Buyer
+            </span>
+          </div>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            "I used to wake up 4 to 5 times every night due to light sensitivity. The silk weighted eye mask stays in place and feels like a warm hug for my face. I'm sleeping through the full 8 hours now!"
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <div class="w-10 h-10 rounded-full bg-accent-violet/30 flex items-center justify-center font-bold text-accent-gold text-sm">
+              EM
+            </div>
+            <div>
+              <h4 class="text-white text-sm font-semibold">Emily M.</h4>
+              <p class="text-slate-400 text-xs">Verified Purchase • NYC, USA</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-4">
+          <div class="flex items-center justify-between">
+            <div class="flex text-amber-400">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <span class="text-emerald-400 text-xs font-medium flex items-center gap-1">
+              <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> Verified Buyer
+            </span>
+          </div>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            "The Sunrise Alarm Clock completely transformed how I start my workday. No jarring blaring alarms. I wake up naturally feeling refreshed. Highly recommend the bundle savings!"
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <div class="w-10 h-10 rounded-full bg-accent-gold/30 flex items-center justify-center font-bold text-accent-gold text-sm">
+              DK
+            </div>
+            <div>
+              <h4 class="text-white text-sm font-semibold">David K.</h4>
+              <p class="text-slate-400 text-xs">Verified Purchase • London, UK</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-4">
+          <div class="flex items-center justify-between">
+            <div class="flex text-amber-400">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <span class="text-emerald-400 text-xs font-medium flex items-center gap-1">
+              <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> Verified Buyer
+            </span>
+          </div>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            "The flame effect diffuser is so relaxing to watch in the dark right before sleep. Combined with lavender oil, my bedroom feels like a 5-star spa. Delivery was super fast!"
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <div class="w-10 h-10 rounded-full bg-accent-rose/30 flex items-center justify-center font-bold text-accent-rose text-sm">
+              SL
+            </div>
+            <div>
+              <h4 class="text-white text-sm font-semibold">Sophia L.</h4>
+              <p class="text-slate-400 text-xs">Verified Purchase • Toronto, CA</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive FAQ Accordion -->
+  <section id="faq" class="py-20 bg-night-800/40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-14">
+        <span class="text-accent-gold font-bold text-xs uppercase tracking-widest">Questions & Answers</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="space-y-4" id="faq-accordion">
+        
+        <!-- FAQ 1 -->
+        <div class="glass-card rounded-xl border border-slate-800 overflow-hidden">
+          <button onclick="toggleFaq(1)" class="w-full px-6 py-4 text-left flex items-center justify-between text-white font-medium hover:bg-night-700/50 transition-colors">
+            <span>How long does shipping take?</span>
+            <i id="faq-icon-1" data-lucide="chevron-down" class="w-5 h-5 text-accent-gold transition-transform"></i>
+          </button>
+          <div id="faq-ans-1" class="hidden px-6 pb-5 text-sm text-slate-400 leading-relaxed border-t border-slate-800/50 pt-3">
+            We process all orders within 24 hours. Standard worldwide tracked shipping typically arrives in 5–8 business days. You will receive an automated tracking link as soon as your package ships.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="glass-card rounded-xl border border-slate-800 overflow-hidden">
+          <button onclick="toggleFaq(2)" class="w-full px-6 py-4 text-left flex items-center justify-between text-white font-medium hover:bg-night-700/50 transition-colors">
+            <span>What is your 30-Day Money-Back Guarantee?</span>
+            <i id="faq-icon-2" data-lucide="chevron-down" class="w-5 h-5 text-accent-gold transition-transform"></i>
+          </button>
+          <div id="faq-ans-2" class="hidden px-6 pb-5 text-sm text-slate-400 leading-relaxed border-t border-slate-800/50 pt-3">
+            We want you to experience genuine rest risk-free. If you are not 100% satisfied with your sleep results within 30 days of receiving your items, simply contact our 24/7 support team for a full return and refund.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="glass-card rounded-xl border border-slate-800 overflow-hidden">
+          <button onclick="toggleFaq(3)" class="w-full px-6 py-4 text-left flex items-center justify-between text-white font-medium hover:bg-night-700/50 transition-colors">
+            <span>How does the weighted silk eye mask clean?</span>
+            <i id="faq-icon-3" data-lucide="chevron-down" class="w-5 h-5 text-accent-gold transition-transform"></i>
+          </button>
+          <div id="faq-ans-3" class="hidden px-6 pb-5 text-sm text-slate-400 leading-relaxed border-t border-slate-800/50 pt-3">
+            The weighted Mulberry Silk cover is easily removable via a hidden zipper and machine-washable on a delicate cycle (or hand wash). The inner weighted pouch can be spot-cleaned with a damp cloth.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="glass-card rounded-xl border border-slate-800 overflow-hidden">
+          <button onclick="toggleFaq(4)" class="w-full px-6 py-4 text-left flex items-center justify-between text-white font-medium hover:bg-night-700/50 transition-colors">
+            <span>Are essential oils included with the diffuser?</span>
+            <i id="faq-icon-4" data-lucide="chevron-down" class="w-5 h-5 text-accent-gold transition-transform"></i>
+          </button>
+          <div id="faq-ans-4" class="hidden px-6 pb-5 text-sm text-slate-400 leading-relaxed border-t border-slate-800/50 pt-3">
+            Yes! Every Ultrasonic Flame Diffuser includes a complimentary 10ml bottle of 100% Organic French Lavender Essential Oil to start your evening ritual immediately upon opening.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-Over Shopping Cart Drawer -->
+  <div id="cart-drawer-backdrop" onclick="toggleCart()" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+  <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-night-900 border-l border-slate-800 z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
+    
+    <!-- Cart Header -->
+    <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-night-800">
+      <div class="flex items-center gap-2">
+        <i data-lucide="shopping-bag" class="w-5 h-5 text-accent-gold"></i>
+        <h3 class="font-bold text-white text-lg">Your Cart</h3>
+        <span id="drawer-cart-count" class="text-xs bg-accent-violet px-2 py-0.5 rounded-full text-white font-semibold">0</span>
+      </div>
+      <button onclick="toggleCart()" class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-night-700">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Free Shipping Progress Bar -->
+    <div class="p-4 bg-night-800/80 border-b border-slate-800 text-xs">
+      <div class="flex justify-between font-medium mb-1">
+        <span id="shipping-bar-text" class="text-slate-300">Add $60.00 more for FREE Express Shipping</span>
+        <span id="shipping-bar-percent" class="text-accent-gold font-bold">0%</span>
+      </div>
+      <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+        <div id="shipping-progress" class="h-full bg-gradient-to-r from-accent-violet to-accent-gold transition-all duration-300 w-0"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items Container -->
+    <div id="cart-items-list" class="flex-1 overflow-y-auto p-5 space-y-4">
+      <!-- Items dynamically populated -->
+    </div>
+
+    <!-- Cart Footer & Checkout -->
+    <div class="p-5 border-t border-slate-800 bg-night-800 space-y-4">
+      <div class="space-y-1.5 text-sm">
+        <div class="flex justify-between text-slate-400">
+          <span>Subtotal</span>
+          <span id="cart-subtotal" class="text-white font-medium">$0.00</span>
+        </div>
+        <div class="flex justify-between text-slate-400">
+          <span>Shipping</span>
+          <span id="cart-shipping-cost" class="text-emerald-400 font-medium">Calculated next</span>
+        </div>
+        <div class="flex justify-between text-base font-bold text-white pt-2 border-t border-slate-700">
+          <span>Total</span>
+          <span id="cart-total" class="text-accent-gold text-xl">$0.00</span>
+        </div>
+      </div>
+
+      <button onclick="checkout()" class="w-full py-4 rounded-xl bg-gradient-to-r from-accent-violet via-accent-indigo to-purple-600 hover:brightness-110 text-white font-bold text-center shadow-lg transition-all flex items-center justify-center gap-2">
+        <i data-lucide="lock" class="w-4 h-4"></i>
+        <span>Proceed to Express Checkout</span>
+      </button>
+      <p class="text-[11px] text-slate-400 text-center">🔒 256-Bit Encrypted SSL Checkout</p>
+    </div>
+
+  </div>
+
+  <!-- Quick View Product Modal -->
+  <div id="product-modal-backdrop" onclick="closeProductModal()" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+  <div id="product-modal" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl bg-night-900 border border-slate-700 rounded-2xl z-50 hidden overflow-hidden shadow-2xl p-6">
+    <button onclick="closeProductModal()" class="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-lg bg-night-800">
+      <i data-lucide="x" class="w-5 h-5"></i>
+    </button>
+    <div id="modal-content" class="grid md:grid-cols-2 gap-6 items-center">
+      <!-- Dynamic modal contents populated via JS -->
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- Footer -->
+  <footer class="bg-night-950 border-t border-slate-800 py-12 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="col-span-2 md:col-span-1 space-y-3">
+        <span class="font-serif text-xl font-bold text-white">Somna<span class="text-accent-gold font-sans font-light">Sleep</span></span>
+        <p class="text-slate-400">Transforming night routines into restful luxury experiences worldwide.</p>
+      </div>
+      <div>
+        <h5 class="font-semibold text-white mb-3 text-sm">Shop</h5>
+        <ul class="space-y-2">
+          <li><a href="#products" class="hover:text-accent-gold">Eye Masks</a></li>
+          <li><a href="#products" class="hover:text-accent-gold">Sunrise Clocks</a></li>
+          <li><a href="#products" class="hover:text-accent-gold">Diffusers</a></li>
+          <li><a href="#bundle" class="hover:text-accent-gold">Sleep Bundles</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-semibold text-white mb-3 text-sm">Customer Support</h5>
+        <ul class="space-y-2">
+          <li><a href="#faq" class="hover:text-accent-gold">Track Order</a></li>
+          <li><a href="#faq" class="hover:text-accent-gold">Shipping Policy</a></li>
+          <li><a href="#faq" class="hover:text-accent-gold">30-Day Returns</a></li>
+          <li><a href="#faq" class="hover:text-accent-gold">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-semibold text-white mb-3 text-sm">Guarantees</h5>
+        <p class="text-slate-400 mb-2">30-Night Risk Free Trial. If you don't sleep better, get 100% money back.</p>
+        <div class="flex items-center gap-2 text-slate-300">
+          <i data-lucide="shield-check" class="w-5 h-5 text-accent-gold"></i>
+          <span class="text-[11px] font-medium">Official Somna Guarantee</span>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-slate-900 text-center text-slate-400">
+      &copy; 2026 SomnaSleep Studio. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Embedded Store JavaScript Data & Logic -->
+  <script>
+    // Products Data
+    const products = [
+      {
+        id: 'eye-mask',
+        name: 'Weighted Silk Sleep Mask',
+        price: 39.99,
+        originalPrice: 59.99,
+        rating: 4.9,
+        reviewsCount: 1420,
+        badge: 'Best Seller',
+        image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=600&q=80',
+        desc: '100% Grade 6A Mulberry silk filled with weighted micro-beads for gentle deep pressure therapy.'
+      },
+      {
+        id: 'sunrise-clock',
+        name: 'Smart Sunrise Alarm Clock',
+        price: 79.99,
+        originalPrice: 119.99,
+        rating: 4.95,
+        reviewsCount: 2180,
+        badge: 'Top Rated',
+        image: 'https://images.unsplash.com/photo-1508672019048-805479767513?auto=format&fit=crop&w=600&q=80',
+        desc: 'Simulates gentle sunrise 30-mins prior to alarm with 7 natural soothing soundscapes.'
+      },
+      {
+        id: 'diffuser',
+        name: 'Ultrasonic Flame Aromatherapy Diffuser',
+        price: 49.99,
+        originalPrice: 69.99,
+        rating: 4.88,
+        reviewsCount: 950,
+        badge: 'Trending',
+        image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600&q=80',
+        desc: 'Ambient flame mist simulation with whisper-quiet ultrasonic technology & automatic shut-off.'
+      }
+    ];
+
+    // State Variables
+    let cart = [];
+    let bundleItems = {
+      'eye-mask': true,
+      'sunrise-clock': true,
+      'diffuser': true
+    };
+
+    // Initialize Lucide Icons & Render UI
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      renderProducts();
+      updateBundle();
+      updateCartUI();
+    });
+
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    // Render Product Cards
+    function renderProducts() {
+      const grid = document.getElementById('products-grid');
+      grid.innerHTML = products.map(product => `
+        <div class="glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between group">
+          <div>
+            <div class="relative h-64 overflow-hidden bg-slate-900">
+              <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/121629/FFFFFF?text=${encodeURIComponent(product.name)}'">
+              <span class="absolute top-3 left-3 bg-accent-violet text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow-md">${product.badge}</span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-1 text-amber-400 text-xs mb-2">
+                <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                <span class="font-bold text-slate-200">${product.rating}</span>
+                <span class="text-slate-400">(${product.reviewsCount})</span>
+              </div>
+              <h3 class="font-bold text-white text-lg">${product.name}</h3>
+              <p class="text-slate-400 text-xs mt-2 line-clamp-2">${product.desc}</p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <div class="flex items-baseline gap-2 mb-4">
+              <span class="text-2xl font-extrabold text-accent-gold">$${product.price}</span>
+              <span class="text-sm line-through text-slate-500">$${product.originalPrice}</span>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <button onclick="openProductModal('${product.id}')" class="py-2.5 px-3 rounded-lg border border-slate-700 hover:bg-night-700 text-xs text-slate-300 font-semibold transition-colors">
+                Quick View
+              </button>
+              <button onclick="addToCart('${product.id}')" class="py-2.5 px-3 rounded-lg bg-accent-violet hover:bg-accent-indigo text-xs text-white font-semibold transition-colors flex items-center justify-center gap-1.5">
+                <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    // Bundle Logic
+    function toggleBundleItem(id) {
+      const checkbox = document.getElementById(`chk-${id}`);
+      checkbox.checked = !checkbox.checked;
+      updateBundle();
+    }
+
+    function updateBundle() {
+      const items = ['eye-mask', 'sunrise-clock', 'diffuser'];
+      let selectedCount = 0;
+      let origTotal = 0;
+
+      items.forEach(id => {
+        const chk = document.getElementById(`chk-${id}`);
+        const card = document.getElementById(`bundle-card-${id}`);
+        if (chk.checked) {
+          selectedCount++;
+          const prod = products.find(p => p.id === id);
+          origTotal += prod.price;
+          card.classList.add('border-accent-violet/80', 'bg-night-800');
+          card.classList.remove('border-transparent', 'bg-night-900/50');
+        } else {
+          card.classList.remove('border-accent-violet/80', 'bg-night-800');
+          card.classList.add('border-transparent', 'bg-night-900/50');
+        }
+      });
+
+      let discountPercent = selectedCount >= 3 ? 0.30 : (selectedCount === 2 ? 0.15 : 0);
+      let savings = origTotal * discountPercent;
+      let finalPrice = origTotal - savings;
+
+      document.getElementById('bundle-items-count').innerText = `${selectedCount} of 3`;
+      document.getElementById('bundle-original-price').innerText = `$${origTotal.toFixed(2)}`;
+      document.getElementById('bundle-savings').innerText = `-$${savings.toFixed(2)}`;
+      document.getElementById('bundle-final-price').innerText = `$${finalPrice.toFixed(2)}`;
+      document.getElementById('bundle-discount-badge').innerText = `Save ${(discountPercent * 100)}%`;
+    }
+
+    function addBundleToCart() {
+      const items = ['eye-mask', 'sunrise-clock', 'diffuser'];
+      let addedCount = 0;
+      items.forEach(id => {
+        const chk = document.getElementById(`chk-${id}`);
+        if (chk.checked) {
+          addToCart(id, false);
+          addedCount++;
+        }
+      });
+      if (addedCount > 0) {
+        showToast(`Added ${addedCount} bundle items to your cart!`);
+        toggleCart();
+      } else {
+        showToast('Please select at least 1 item for the bundle.');
+      }
+    }
+
+    // Shopping Cart Functions
+    function addToCart(productId, openDrawer = true) {
+      const prod = products.find(p => p.id === productId);
+      const existing = cart.find(item => item.id === productId);
+
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ ...prod, qty: 1 });
+      }
+
+      updateCartUI();
+      if (openDrawer) {
+        showToast(`Added ${prod.name} to cart`);
+        toggleCart();
+      }
+    }
+
+    function updateCartQty(productId, delta) {
+      const idx = cart.findIndex(item => item.id === productId);
+      if (idx !== -1) {
+        cart[idx].qty += delta;
+        if (cart[idx].qty <= 0) {
+          cart.splice(idx, 1);
+        }
+      }
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+      const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+
+      document.getElementById('cart-badge-count').innerText = totalItems;
+      document.getElementById('drawer-cart-count').innerText = totalItems;
+      document.getElementById('cart-subtotal').innerText = `$${subtotal.toFixed(2)}`;
+      document.getElementById('cart-total').innerText = `$${subtotal.toFixed(2)}`;
+
+      // Free shipping threshold ($100 target)
+      const target = 100;
+      const progress = Math.min((subtotal / target) * 100, 100);
+      document.getElementById('shipping-progress').style.width = `${progress}%`;
+      document.getElementById('shipping-bar-percent').innerText = `${Math.round(progress)}%`;
+
+      if (subtotal >= target) {
+        document.getElementById('shipping-bar-text').innerText = '🎉 You unlocked FREE Express Shipping!';
+      } else {
+        document.getElementById('shipping-bar-text').innerText = `Add $${(target - subtotal).toFixed(2)} more for FREE Express Shipping`;
+      }
+
+      // Render Drawer Items List
+      const list = document.getElementById('cart-items-list');
+      if (cart.length === 0) {
+        list.innerHTML = `
+          <div class="text-center py-12 text-slate-400 space-y-3">
+            <i data-lucide="shopping-bag" class="w-12 h-12 mx-auto text-slate-600"></i>
+            <p>Your cart is currently empty.</p>
+          </div>
+        `;
+      } else {
+        list.innerHTML = cart.map(item => `
+          <div class="flex items-center gap-4 bg-night-800/80 p-3 rounded-xl border border-slate-800">
+            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-lg border border-slate-700" onerror="this.src='https://placehold.co/100/121629/FFFFFF?text=Item'">
+            <div class="flex-1 min-w-0">
+              <h4 class="text-white text-sm font-semibold truncate">${item.name}</h4>
+              <p class="text-accent-gold text-xs font-bold mt-0.5">$${item.price}</p>
+              <div class="flex items-center gap-3 mt-2">
+                <div class="flex items-center border border-slate-700 rounded-lg overflow-hidden bg-night-900">
+                  <button onclick="updateCartQty('${item.id}', -1)" class="px-2 py-0.5 text-slate-300 hover:bg-slate-700">-</button>
+                  <span class="px-2 text-xs font-semibold text-white">${item.qty}</span>
+                  <button onclick="updateCartQty('${item.id}', 1)" class="px-2 py-0.5 text-slate-300 hover:bg-slate-700">+</button>
+                </div>
+              </div>
+            </div>
+            <button onclick="updateCartQty('${item.id}', -${item.qty})" class="text-slate-500 hover:text-rose-400 p-1">
+              <i data-lucide="trash-2" class="w-4 h-4"></i>
+            </button>
+          </div>
+        `).join('');
+      }
+      lucide.createIcons();
+    }
+
+    function toggleCart() {
+      const drawer = document.getElementById('cart-drawer');
+      const backdrop = document.getElementById('cart-drawer-backdrop');
+      const isHidden = drawer.classList.contains('translate-x-full');
+
+      if (isHidden) {
+        backdrop.classList.remove('hidden');
+        drawer.classList.remove('translate-x-full');
+      } else {
+        drawer.classList.add('translate-x-full');
+        backdrop.classList.add('hidden');
+      }
+    }
+
+    // Modal Quick View
+    function openProductModal(productId) {
+      const prod = products.find(p => p.id === productId);
+      const modal = document.getElementById('product-modal');
+      const backdrop = document.getElementById('product-modal-backdrop');
+      const content = document.getElementById('modal-content');
+
+      content.innerHTML = `
+        <img src="${prod.image}" alt="${prod.name}" class="w-full h-64 object-cover rounded-xl border border-slate-700" onerror="this.src='https://placehold.co/600x400/121629/FFFFFF?text=${encodeURIComponent(prod.name)}'">
+        <div class="space-y-4">
+          <span class="bg-accent-violet/20 text-accent-violet text-xs font-bold px-2.5 py-1 rounded-full border border-accent-violet/30">${prod.badge}</span>
+          <h3 class="font-serif text-2xl font-bold text-white">${prod.name}</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">${prod.desc}</p>
+          <div class="flex items-baseline gap-3">
+            <span class="text-3xl font-extrabold text-accent-gold">$${prod.price}</span>
+            <span class="text-sm line-through text-slate-500">$${prod.originalPrice}</span>
+          </div>
+          <button onclick="addToCart('${prod.id}'); closeProductModal();" class="w-full py-3.5 rounded-xl bg-accent-violet hover:bg-accent-indigo text-white font-bold transition-colors flex items-center justify-center gap-2">
+            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+            <span>Add to Cart Now</span>
+          </button>
+        </div>
+      `;
+
+      backdrop.classList.remove('hidden');
+      modal.classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeProductModal() {
+      document.getElementById('product-modal').classList.add('hidden');
+      document.getElementById('product-modal-backdrop').classList.add('hidden');
+    }
+
+    // FAQ Accordion Toggle
+    function toggleFaq(id) {
+      const ans = document.getElementById(`faq-ans-${id}`);
+      const icon = document.getElementById(`faq-icon-${id}`);
+      const isHidden = ans.classList.contains('hidden');
+
+      if (isHidden) {
+        ans.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      } else {
+        ans.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      }
+    }
+
+    // Toast Notifications
+    function showToast(message) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'glass-card border border-accent-violet/50 text-white text-xs font-semibold px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2 animate-bounce pointer-events-auto';
+      toast.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i><span>${message}</span>`;
+      
+      container.appendChild(toast);
+      lucide.createIcons();
+
+      setTimeout(() => {
+        toast.remove();
+      }, 3500);
+    }
+
+    // Checkout Simulation
+    function checkout() {
+      if (cart.length === 0) {
+        showToast('Your cart is empty. Add items first!');
+        return;
+      }
+      showToast('Redirecting to SSL Secure Express Checkout...');
+    }
+  </script>
+
+</body>
+</html>
